@@ -17,6 +17,7 @@ I will be using IaC at all reasonably possible times.
 
 Hardware being used: Dell R730xd. Dual socket E5 xeons, 12 physical cores each, hyperthreading enabled. 256GB DDR4 ECC Ram. 2-1TB MX500 SATA SSDs in RAID1 for OS storage, 1-1TB WD Blue disk in the front for other storage, to be upgraded.
 
-Rough order of events:
-
-1. Provision Proxmox on my server
+Rough order of operations:
+1. Physical layer. Rack mount my router, switch, Raspberry Pis. Wire everything up. Reorganize power, attach power strips to the back of the rack. Will need to 3D print rack gear to hold all gear. Server is sitting in the bottom of the rack, which is fine. If I can get rack arms for the server to slide in and out, that would be cool, but it's a want, not a need. Bonus points for a label maker to label the Pis for easier troubleshooting. Rewire so the router, fiber gateway, switch, AP's POE injector, and infrastruture Pi are all on 1 power strip. Everything required to keep the network up. Easier troubleshooting and also will allow for me to more easily calcualte power draw and make a better decision on the UPS when the time comes. Real home infra needs before the project's needs.
+2.  Hypervisor: Install Proxmox VE 9 on the server. One installed, create a new admin account and set STRONG root password. Create an ansible account so we can have appropriate logging configured. Upload VM OS to Proxmox.
+3.  IaC setup: determine where I'll run Ansible from. CLI, AAP, or AWX.
